@@ -15,12 +15,15 @@ export function Home() {
       done: false
     }
 
-    console.log('oi')
     setTasks([...tasks, newTask])
   }
 
   function handleToggleTaskDone(id: number) {
-    // const newTasks = tasks.map(task => task.id === id ? task.done = !task.done : task)
+    const newTasks = tasks.map(task => task.id === id ? (
+      {...task, done: !task.done}
+    ) : task)
+    setTasks(newTasks)
+    console.log(tasks)
   }
 
   function handleRemoveTask(id: number) {
